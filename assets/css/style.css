@@ -1,0 +1,507 @@
+/*  Reset CSS*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* font family giup cac con cx dc thua ke
+dung html hop li hon - lay tat ca hoi sai logic? */
+html {
+  scroll-behavior: smooth;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Common */
+/* xu ly anh huong cua float */
+.clear {
+  clear: both;
+}
+.text-white {
+  color: #fff !important;
+}
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+.col {
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.col-half {
+  width: 50%;
+}
+.col-third {
+  width: 33.33333%;
+}
+.col-four {
+  width: 25%;
+}
+.col-full {
+  width: 100%;
+}
+.text-center {
+  text-align: center !important;
+}
+.pull-right {
+  float: right !important;
+}
+.btn {
+  margin-top: 25px;
+  text-decoration: none;
+  background-color: #000;
+  color: #fff;
+  padding: 11px 16px;
+  border: none;
+  /* Tinh chat Inline khi padding len lam va cham voi noi dung o tren
+  --> no cu troi len nhu vay */
+  display: inline-block;
+}
+.btn:hover {
+  background-color: #ccc;
+  color: #000;
+  cursor: pointer;
+}
+/* Khong can class clear cho row -> lam the gia
+pseudo-element */
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mt-8 {
+  margin-top: 8px !important;
+}
+.mt-16 {
+  margin-top: 16px !important;
+}
+/* Main */
+#main {
+}
+/* fixed dat truc toa do vao goc tren ben trai */
+#header {
+  height: 50px;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* De cho phan header o tren phan slider */
+  z-index: 1;
+  /* Khi hiện thị mobile các tp con chọc ra ngoài
+  và vẫn hiện thị trong khi thành phần cha (nav) ko bọc lại
+  là do overflow mặc định */
+  overflow: hidden;
+  /* ẩn các tp con */
+}
+#nav {
+  display: inline-block;
+}
+/* bo dau cham . truoc the li */
+#nav,
+.subnav {
+  list-style-type: none;
+}
+/* inline-block: nó chỉ chiếm khoảng không bao quanh nội dung
+ của nó thôi và điều chỉnh được kích thước.
+còn Block: một mình nó 1 hàng, và nó sẽ chiếm toàn bộ hàng của 
+nó. thằng khác k chen vô được. */
+#nav > li {
+  display: inline-block;
+}
+/* position lay cha gan nhat la more */
+#nav li {
+  position: relative;
+}
+/* vi subnav bi anh huong chu cung mau nen ko thay */
+#nav > li > a {
+  color: #fff;
+  text-transform: uppercase;
+}
+/*vì thẻ a này mặc định là display là inline 
+thì nó sẽ ko cho thay đổi chiều dọc => auto auto
+nếu muốn làm thì bạn phải thêm inline-block cho display*/
+#nav li a {
+  text-decoration: none;
+  line-height: 50px;
+  padding: 0px 25px;
+  display: inline-block;
+}
+#nav li:hover .subnav {
+  display: block;
+}
+/* kinh nghiep: hover trong li thay vi a
+-> vi du nhu trong more khi di chuot len 
+cac tp trong thi more bi mat hieu ung*/
+#nav .subnav li:hover a,
+#nav > li:hover > a {
+  background-color: rgb(233, 137, 185);
+  color: #000;
+}
+/* khi subnav hiện lên, nó thay đổi chiều cao của thẻ li more, 
+khiến "cái đít" của thẻ li more tụt xuống dưới, 
+thế là các thẻ li khác cũng tụt xuống lun tại vì sao? 
+do lúc này subnav chưa được xác định vị trí như là con của more,
+thế nên nó hiện lên như bạn bè. do đó đật khai báo position 
+cho subnav "biết thế nào là lễ độ" và phải lui về làm con của mormore */
+
+/* cách hiển thị mặc định của inline-block là 
+sắp xếp phần tử theo hàng ngang và lấy đáy làm chuẩn. */
+#nav .subnav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  /* tang chieu rong, con neu phan noi dung dai hon thi van tu co rong ra */
+  min-width: 160px;
+  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .subnav a {
+  color: #000;
+  display: block;
+  padding: 0px 15px;
+  line-height: 55px;
+}
+/* mac dinh icon la 16px */
+#nav .nav-arrow-down {
+  font-size: 14px;
+}
+#header .mobile-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+#header .mobile-menu-btn,
+#header .search-btn {
+  float: right;
+  padding: 0 20px;
+  line-height: 50px;
+}
+#header .mobile-menu-btn {
+  background-color: #ccc;
+}
+#header .search-btn:hover {
+  background-color: rgb(233, 137, 185);
+  cursor: pointer;
+}
+/* Khong thay lien, do nav chiem het chieu ngang nen pk xuong hang
+nav block  ---> inline-block */
+#header .menu-icon {
+  color: #000;
+  font-size: 15px;
+}
+#header .search-icon {
+  color: #fff;
+  font-size: 15px;
+}
+#slider {
+  margin-top: 50px;
+  /*chieu dai bang 50% kich thuoc chieu ngang 
+  --> anh luon ty le voi nhau du phong to nho*/
+  padding-top: 50%;
+  background: url("../img/slider/slider2.jpeg") top center / cover no-repeat;
+  position: relative;
+}
+#slider .text-content {
+  position: absolute;
+  color: #fff;
+  /* Cach can giua khac:+ width:100% => rong bang cha
++left:0 right: 0  */
+  left: 50%;
+  bottom: 75px;
+
+  transform: translateX(-50%);
+  text-align: center;
+}
+#slider .text-heading {
+  /* Giam do day, gtri 100-700 */
+  font-weight: 500;
+  font-size: 24px;
+}
+#slider .text-description {
+  font-size: 15px;
+  margin-top: 10px;
+}
+#content .content-section {
+  width: 800px;
+  padding: 64px 0px 112px;
+  margin-left: auto;
+  margin-right: auto;
+  /* tablet ipad*/
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  /* De phan nay xuong duoi 
+  vì giao diện hàng cột trước đó đã sd margin âm. 
+  thông thường nếu sd margin: 8px thì nội dung sẽ 
+  cách 2 mép lề ra 1 khoảng 8px. nhưng khi sd margin âm
+  thì nội dung sẽ bị kéo về hướng ngược lại, tức kéo ra
+  phía ngoài 2 mép lề trái và lề phải. nghĩa là nó đang
+  chọc ra ngoài màn hình trình duyệt do đó xuất hiện 1 
+  khe hở 8px. trong khi độ dài của slider ăn theo width
+  trình duyệt (=768px). khi padding thêm vào thẻ cha 
+  (content-section) thì nó sẽ đẩy ngược nội dung vào 
+  lại bên trong (bù trừ với phần margin âm) khiến cho 
+  phần nội dung không chọc ra phía ngoài nữa, do đó 
+  khắc phục được lỗi khoảng hở ở phần slider*/
+}
+
+#content .section-heading {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+#content .section-sub-heading {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 25px;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+#content .about-text {
+  font-size: 15px;
+  margin-top: 25px;
+  text-align: justify;
+  line-height: 1.4;
+}
+#content .member-list {
+  margin-top: 42px;
+  /*C2: Xu ly anh huong cua float lam member list ko bao dc member-item 
+  overflow: hidden;  */
+}
+#content .member-name {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+#content .member-img {
+  /* chinh lai do rong cua anh 
+  -> tu dong can chinh ty le */
+  width: 154px;
+  /* bo goc */
+  border-radius: 4px;
+}
+.tour-section {
+  background-color: #000;
+}
+.ticket-list {
+  background-color: #fff;
+  margin-top: 40px;
+}
+.ticket-list li {
+  color: #757575;
+  padding: 11px 16px;
+  font-size: 15px;
+  border-bottom: 1px solid #ddd;
+  list-style-type: none;
+}
+.ticket-list .sold-out {
+  background-color: #f44336;
+  padding: 3px 4px;
+  margin-left: 16px;
+}
+/* So 3 bi lech xuong phia duoi, do padding cua the li, vi kich thuoc cua o so 3 lon hon (24px) */
+/* Su dung margin am, nhma pk  su dung float
+the co tinh chat inline ma them float -> block 
+--> thay doi width height dc  */
+.ticket-list .quantity {
+  float: right;
+  width: 24px;
+  height: 24px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 24px;
+  margin-top: -3px;
+}
+.places-list {
+  /* left right =-8px => can thang doc voi phan tourdate */
+  margin-top: 32px;
+}
+.place-img {
+  width: 100%;
+  /* tinh chat inline lam xuat hien khoang cach giua img va content */
+  display: block;
+}
+.place-img:hover {
+  opacity: 0.6;
+}
+.place-content {
+  font-size: 15px;
+  padding: 16px;
+  background-color: #fff;
+}
+.place-heading {
+  font-size: 15px;
+  font-weight: 600;
+}
+.place-time {
+  margin-top: 15px;
+  color: #757575;
+}
+.place-desc {
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+/* Start: Modal */
+/* Phan modal (khi bam vo buyticket) phu kin toan bo khung hinh */
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+/* class modal co class open */
+.modal.open {
+  display: flex;
+}
+.modal-header {
+  height: 130px;
+  background: #009688;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #fff;
+}
+.modal-container {
+  width: 900px;
+  background: #fff;
+  /* keo man hinh nho lai tu dong co theo
+  chu y: ko dc viet 100%-32px phai co khoang trang */
+  max-width: calc(100% - 32px);
+  min-height: 200px;
+  position: relative;
+  /* hieu ung */
+  animation: modalFadeIn ease 0.5s;
+}
+.modal-close:hover {
+  opacity: 1;
+}
+/* het khoang ho voi tickets */
+.modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.modal-heading-icon {
+  margin-right: 15px;
+}
+.modal-body {
+  padding: 16px;
+}
+.modal-label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.modal-input {
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+#buy-tickets:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+#buy-tickets {
+  width: 100%;
+  color: #fff;
+  background: #009688;
+  border: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 18px;
+}
+.modal-footer {
+  padding: 16px;
+  text-align: right;
+}
+.modal-footer a {
+  color: #2196f3;
+}
+/* End: Modal */
+
+/* Start: Contact section */
+.contact-content {
+  margin-top: 48px;
+}
+.contact-info {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.contact-info i[class*="ti-"] {
+  width: 30px;
+  display: inline-block;
+}
+.contact-form {
+  font-size: 15px;
+}
+.contact-form .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* End: Contact section */
+
+/* Start: Map section */
+.map-section img {
+  width: 100%;
+}
+/* End: Map section */
+/* Start: Footer section */
+#footer {
+  padding: 64px 16px 112px;
+  text-align: center;
+}
+#footer .socials-list {
+  font-size: 24px;
+}
+#footer .socials-list a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+#footer .coppyright a:hover,
+#footer .socials-list a:hover {
+  color: rgba(0, 0, 0, 0.4);
+}
+#footer .coppyright {
+  margin-top: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+#footer .coppyright a {
+  margin-top: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* End: Footer section */
+
+/* tao hieu ung xuat hien cho modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
