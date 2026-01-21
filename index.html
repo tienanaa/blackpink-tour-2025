@@ -77,7 +77,7 @@
             ea commodo consequat.
           </p>
           <div class="member-list row">
-            <div class="text-center col col-four">
+            <div class="mt-16 s-col-full text-center col col-four">
               <p class="member-name">Lisa</p>
               <img
                 src="./assets/img/team/lisa2.jpg"
@@ -85,7 +85,7 @@
                 class="member-img"
               />
             </div>
-            <div class="text-center col col-four">
+            <div class="mt-16 s-col-full text-center col col-four">
               <p class="member-name">Jennie</p>
               <img
                 src="./assets/img/team/jennie2.jpg"
@@ -93,7 +93,7 @@
                 class="member-img"
               />
             </div>
-            <div class="text-center col col-four">
+            <div class="mt-16 s-col-full text-center col col-four">
               <p class="member-name">Jisoo</p>
               <img
                 src="./assets/img/team/jisoo2.jpg"
@@ -101,7 +101,7 @@
                 class="member-img"
               />
             </div>
-            <div class="text-center col col-four">
+            <div class="mt-16 s-col-full text-center col col-four">
               <p class="member-name">Rose</p>
               <img
                 src="./assets/img/team/rose2.jpg"
@@ -127,7 +127,7 @@
               <li>November <span class="quantity">3</span></li>
             </ul>
             <div class="places-list row">
-              <div class="place-item col col-third">
+              <div class="mt-16 s-col-full col col-third">
                 <img
                   src="./assets/img/places/place1.jpg"
                   alt="New York"
@@ -142,7 +142,7 @@
                   <button class="btn js-buy-ticket">Buy Tickets</button>
                 </div>
               </div>
-              <div class="place-item col col-third">
+              <div class="mt-16 s-col-full col col-third">
                 <img
                   src="./assets/img/places/place2.jpg"
                   alt="New York"
@@ -157,7 +157,7 @@
                   <button class="btn js-buy-ticket">Buy Tickets</button>
                 </div>
               </div>
-              <div class="place-item col col-third">
+              <div class="mt-16 s-col-full col col-third">
                 <img
                   src="./assets/img/places/place3.jpg"
                   alt="New York"
@@ -318,13 +318,17 @@
       var menuItems = document.querySelectorAll('#nav li a[href*="#" ]');
       for (var i = 0; i < menuItems.length; i++) {
         var menuItem = menuItems[i];
+
         menuItem.onclick = function () {
-          console.log(this);
-          header.style.height = "";
+          var isParentMenu =
+            this.nextElementSibling &&
+            this.nextElementSibling.classList.contains("subnav");
+
+          if (isParentMenu) event.preventDefault();
+          else header.style.height = null;
         };
       }
 
-      console.log(menuItem);
       //  lam modal buy tickets
       const buyBtns = document.querySelectorAll(".js-buy-ticket");
       const modal = document.querySelector(".js-modal");

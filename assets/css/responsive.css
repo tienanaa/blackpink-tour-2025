@@ -6,19 +6,44 @@
 }
 /* Mobile */
 @media (max-width: 740px) {
+  .s-col-full {
+    width: 100%;
+  }
   #nav {
     display: block;
   }
   #nav > li {
     display: block;
   }
+  #nav li a {
+    display: block;
+  }
   #nav > li:first-child {
     display: inline-block;
+  }
+  #nav .subnav {
+    position: initial;
+    background-color: #333;
+  }
+  #nav .subnav a {
+    color: #fff;
+    padding-left: 40px;
+  }
+  #header {
+    overflow: hidden;
+    /* tránh việc các thành phần con ảnh hưởng */
   }
   #header .search-btn {
     display: none;
   }
   #header .mobile-menu-btn {
     display: block;
+  }
+  #content .memberItem {
+    margin-top: 30px;
+    width: 100%;
+  }
+  #content .member-img {
+    width: 60%;
   }
 }

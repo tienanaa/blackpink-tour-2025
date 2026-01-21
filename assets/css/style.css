@@ -91,8 +91,6 @@ pseudo-element */
   /* Khi hiện thị mobile các tp con chọc ra ngoài
   và vẫn hiện thị trong khi thành phần cha (nav) ko bọc lại
   là do overflow mặc định */
-  overflow: hidden;
-  /* ẩn các tp con */
 }
 #nav {
   display: inline-block;
@@ -211,7 +209,7 @@ nav block  ---> inline-block */
   /* Cach can giua khac:+ width:100% => rong bang cha
 +left:0 right: 0  */
   left: 50%;
-  bottom: 75px;
+  bottom: 20px;
 
   transform: translateX(-50%);
   text-align: center;
@@ -271,12 +269,12 @@ nav block  ---> inline-block */
   line-height: 1.4;
 }
 #content .member-list {
-  margin-top: 42px;
+  margin-top: 32px;
   /*C2: Xu ly anh huong cua float lam member list ko bao dc member-item 
   overflow: hidden;  */
 }
 #content .member-name {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 15px;
 }
 #content .member-img {
@@ -322,7 +320,7 @@ the co tinh chat inline ma them float -> block
 }
 .places-list {
   /* left right =-8px => can thang doc voi phan tourdate */
-  margin-top: 32px;
+  margin-top: 16px;
 }
 .place-img {
   width: 100%;
