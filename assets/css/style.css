@@ -4,14 +4,11 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* font family giup cac con cx dc thua ke
-dung html hop li hon - lay tat ca hoi sai logic? */
 html {
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* Common */
-/* xu ly anh huong cua float */
+
 .clear {
   clear: both;
 }
@@ -53,8 +50,6 @@ html {
   color: #fff;
   padding: 11px 16px;
   border: none;
-  /* Tinh chat Inline khi padding len lam va cham voi noi dung o tren
-  --> no cu troi len nhu vay */
   display: inline-block;
 }
 .btn:hover {
@@ -62,8 +57,6 @@ html {
   color: #000;
   cursor: pointer;
 }
-/* Khong can class clear cho row -> lam the gia
-pseudo-element */
 .row::after {
   content: "";
   display: block;
@@ -75,10 +68,11 @@ pseudo-element */
 .mt-16 {
   margin-top: 16px !important;
 }
-/* Main */
-#main {
+.mt-32 {
+  margin-top: 32px !important;
 }
-/* fixed dat truc toa do vao goc tren ben trai */
+/* Main */
+
 #header {
   height: 50px;
   background-color: #000;
@@ -86,39 +80,26 @@ pseudo-element */
   top: 0;
   left: 0;
   right: 0;
-  /* De cho phan header o tren phan slider */
   z-index: 1;
-  /* Khi hiện thị mobile các tp con chọc ra ngoài
-  và vẫn hiện thị trong khi thành phần cha (nav) ko bọc lại
-  là do overflow mặc định */
 }
 #nav {
   display: inline-block;
 }
-/* bo dau cham . truoc the li */
 #nav,
 .subnav {
   list-style-type: none;
 }
-/* inline-block: nó chỉ chiếm khoảng không bao quanh nội dung
- của nó thôi và điều chỉnh được kích thước.
-còn Block: một mình nó 1 hàng, và nó sẽ chiếm toàn bộ hàng của 
-nó. thằng khác k chen vô được. */
+
 #nav > li {
   display: inline-block;
 }
-/* position lay cha gan nhat la more */
 #nav li {
   position: relative;
 }
-/* vi subnav bi anh huong chu cung mau nen ko thay */
 #nav > li > a {
   color: #fff;
   text-transform: uppercase;
 }
-/*vì thẻ a này mặc định là display là inline 
-thì nó sẽ ko cho thay đổi chiều dọc => auto auto
-nếu muốn làm thì bạn phải thêm inline-block cho display*/
 #nav li a {
   text-decoration: none;
   line-height: 50px;
@@ -128,29 +109,16 @@ nếu muốn làm thì bạn phải thêm inline-block cho display*/
 #nav li:hover .subnav {
   display: block;
 }
-/* kinh nghiep: hover trong li thay vi a
--> vi du nhu trong more khi di chuot len 
-cac tp trong thi more bi mat hieu ung*/
 #nav .subnav li:hover a,
 #nav > li:hover > a {
   background-color: rgb(233, 137, 185);
   color: #000;
 }
-/* khi subnav hiện lên, nó thay đổi chiều cao của thẻ li more, 
-khiến "cái đít" của thẻ li more tụt xuống dưới, 
-thế là các thẻ li khác cũng tụt xuống lun tại vì sao? 
-do lúc này subnav chưa được xác định vị trí như là con của more,
-thế nên nó hiện lên như bạn bè. do đó đật khai báo position 
-cho subnav "biết thế nào là lễ độ" và phải lui về làm con của mormore */
-
-/* cách hiển thị mặc định của inline-block là 
-sắp xếp phần tử theo hàng ngang và lấy đáy làm chuẩn. */
 #nav .subnav {
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #fff;
-  /* tang chieu rong, con neu phan noi dung dai hon thi van tu co rong ra */
   min-width: 160px;
   display: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -162,7 +130,6 @@ sắp xếp phần tử theo hàng ngang và lấy đáy làm chuẩn. */
   padding: 0px 15px;
   line-height: 55px;
 }
-/* mac dinh icon la 16px */
 #nav .nav-arrow-down {
   font-size: 14px;
 }
@@ -185,8 +152,6 @@ sắp xếp phần tử theo hàng ngang và lấy đáy làm chuẩn. */
   background-color: rgb(233, 137, 185);
   cursor: pointer;
 }
-/* Khong thay lien, do nav chiem het chieu ngang nen pk xuong hang
-nav block  ---> inline-block */
 #header .menu-icon {
   color: #000;
   font-size: 15px;
@@ -197,17 +162,13 @@ nav block  ---> inline-block */
 }
 #slider {
   margin-top: 50px;
-  /*chieu dai bang 50% kich thuoc chieu ngang 
-  --> anh luon ty le voi nhau du phong to nho*/
   padding-top: 50%;
-  background: url("../img/slider/slider2.jpeg") top center / cover no-repeat;
+  background: url("../img/slider/slider.jpeg") top center / cover no-repeat;
   position: relative;
 }
 #slider .text-content {
   position: absolute;
   color: #fff;
-  /* Cach can giua khac:+ width:100% => rong bang cha
-+left:0 right: 0  */
   left: 50%;
   bottom: 20px;
 
@@ -215,7 +176,6 @@ nav block  ---> inline-block */
   text-align: center;
 }
 #slider .text-heading {
-  /* Giam do day, gtri 100-700 */
   font-weight: 500;
   font-size: 24px;
 }
@@ -232,19 +192,6 @@ nav block  ---> inline-block */
   max-width: 100%;
   padding-left: 16px;
   padding-right: 16px;
-  /* De phan nay xuong duoi 
-  vì giao diện hàng cột trước đó đã sd margin âm. 
-  thông thường nếu sd margin: 8px thì nội dung sẽ 
-  cách 2 mép lề ra 1 khoảng 8px. nhưng khi sd margin âm
-  thì nội dung sẽ bị kéo về hướng ngược lại, tức kéo ra
-  phía ngoài 2 mép lề trái và lề phải. nghĩa là nó đang
-  chọc ra ngoài màn hình trình duyệt do đó xuất hiện 1 
-  khe hở 8px. trong khi độ dài của slider ăn theo width
-  trình duyệt (=768px). khi padding thêm vào thẻ cha 
-  (content-section) thì nó sẽ đẩy ngược nội dung vào 
-  lại bên trong (bù trừ với phần margin âm) khiến cho 
-  phần nội dung không chọc ra phía ngoài nữa, do đó 
-  khắc phục được lỗi khoảng hở ở phần slider*/
 }
 
 #content .section-heading {
@@ -270,18 +217,13 @@ nav block  ---> inline-block */
 }
 #content .member-list {
   margin-top: 32px;
-  /*C2: Xu ly anh huong cua float lam member list ko bao dc member-item 
-  overflow: hidden;  */
 }
 #content .member-name {
   font-size: 18px;
   margin-bottom: 15px;
 }
 #content .member-img {
-  /* chinh lai do rong cua anh 
-  -> tu dong can chinh ty le */
   width: 154px;
-  /* bo goc */
   border-radius: 4px;
 }
 .tour-section {
@@ -303,10 +245,6 @@ nav block  ---> inline-block */
   padding: 3px 4px;
   margin-left: 16px;
 }
-/* So 3 bi lech xuong phia duoi, do padding cua the li, vi kich thuoc cua o so 3 lon hon (24px) */
-/* Su dung margin am, nhma pk  su dung float
-the co tinh chat inline ma them float -> block 
---> thay doi width height dc  */
 .ticket-list .quantity {
   float: right;
   width: 24px;
@@ -319,12 +257,10 @@ the co tinh chat inline ma them float -> block
   margin-top: -3px;
 }
 .places-list {
-  /* left right =-8px => can thang doc voi phan tourdate */
   margin-top: 16px;
 }
 .place-img {
   width: 100%;
-  /* tinh chat inline lam xuat hien khoang cach giua img va content */
   display: block;
 }
 .place-img:hover {
@@ -377,8 +313,6 @@ the co tinh chat inline ma them float -> block
 .modal-container {
   width: 900px;
   background: #fff;
-  /* keo man hinh nho lai tu dong co theo
-  chu y: ko dc viet 100%-32px phai co khoang trang */
   max-width: calc(100% - 32px);
   min-height: 200px;
   position: relative;
@@ -388,7 +322,6 @@ the co tinh chat inline ma them float -> block
 .modal-close:hover {
   opacity: 1;
 }
-/* het khoang ho voi tickets */
 .modal-close {
   position: absolute;
   right: 0;
@@ -445,6 +378,13 @@ the co tinh chat inline ma them float -> block
 .contact-info {
   font-size: 18px;
   line-height: 1.5;
+}
+.contact-info a {
+  color: #1f3191;
+  opacity: 0.8;
+}
+.contact-info a:hover {
+  opacity: 1;
 }
 .contact-info i[class*="ti-"] {
   width: 30px;
