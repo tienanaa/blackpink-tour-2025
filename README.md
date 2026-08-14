@@ -2,14 +2,12 @@
 
 A static landing page showcasing the BLACKPINK world tour, created as a practice exercise to hone core Frontend development skills.
 
----
 
 ## 1. Project Overview
 - **Purpose:** A hands-on practice project designed to sharpen and consolidate frontend web development skills (HTML, CSS, and Vanilla JavaScript).
 - **Inspiration:** Built upon the classic "The Band" template from the F8 HTML/CSS course, fully customized with new content, imagery, and styling themed around the **BLACKPINK - 2025 World Tour**.
 - **Scope:** 100% focused on frontend UI/UX, responsive behavior, and interactive elements across various device screen sizes.
 
----
 
 ## 2. Technologies & Techniques
 
@@ -25,7 +23,6 @@ A static landing page showcasing the BLACKPINK world tour, created as a practice
 - **CSS Animation:** Smooth animation for the ticket booking modal.
 - **DOM & Event Handling:** Mobile navigation toggle and modal open/close functionality.
 
----
 
 ## 3. Live Demo (GitHub Pages)
 
